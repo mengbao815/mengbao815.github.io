@@ -15,10 +15,7 @@
       <guid>https://mengbao815.github.io/post/blog/</guid>
       <description>使用的系统 Arch Linux
 参考文档 https://www.cnblogs.com/sochishun/p/14505669.html
-操作步骤 1. 打开这个网站https://www.ipaddress.com/， 查询下面三个网址的IP地址 github.com
-assets-cdn.github.com
-github.global.ssl.fastly.net
-2. 把下面的内容追加到/etc/hosts 140.82.114.4	github.com 199.232.69.194	github.global.ssl.fastly.net 185.199.108.153	asserts-cdn.github.com 185.199.109.153	asserts-cdn.github.com 185.199.110.153	asserts-cdn.github.com 185.199.111.153	asserts-cdn.github.com 3. 刷新DNS缓存 systemctl restart nscd</description>
+操作步骤 1. 打开这个网站https://www.ipaddress.com/， 查询下面三个网址的IP地址 github.com assets-cdn.github.com github.global.ssl.fastly.net 2. 把下面的内容追加到/etc/hosts 140.82.114.4	github.com 199.232.69.194	github.global.ssl.fastly.net 185.199.108.153	asserts-cdn.github.com 185.199.109.153	asserts-cdn.github.com 185.199.110.153	asserts-cdn.github.com 185.199.111.153	asserts-cdn.github.com 3. 刷新DNS缓存 systemctl restart nscd</description>
     </item>
     
   </channel>

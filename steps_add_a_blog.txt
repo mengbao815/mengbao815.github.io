@@ -1,0 +1,13 @@
+hugo new site /home/mengbao/mnt/06_my_blog
+cd 06_my_blog/
+git clone https://github.com/vaga/hugo-theme-m10c.git themes/m10c
+hugo server -t m10c --buildDrafts
+hugo new post/blog.md
+hugo server -t m10c --buildDrafts
+hugo --theme=m10c --baseUrl="https://mengbao815.github.io" --buildDrafts
+cd public/
+git init
+git add .
+git commit -m "first version"
+git remote add origin https://github.com/mengbao815/mengbao815.github.io.git
+git push -u origin master
