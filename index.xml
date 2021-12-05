@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>My New Hugo Site</title>
+    <link>https://mengbao815.github.io/</link>
+    <description>Recent content on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 05 Dec 2021 22:33:28 +0800</lastBuildDate><atom:link href="https://mengbao815.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>解决访问github慢的问题</title>
+      <link>https://mengbao815.github.io/post/blog/</link>
+      <pubDate>Sun, 05 Dec 2021 22:33:28 +0800</pubDate>
+      
+      <guid>https://mengbao815.github.io/post/blog/</guid>
+      <description>使用的系统 Arch Linux
+参考文档 https://www.cnblogs.com/sochishun/p/14505669.html
+操作步骤 1. 打开这个网站https://www.ipaddress.com/， 查询下面三个网址的IP地址 github.com
+assets-cdn.github.com
+github.global.ssl.fastly.net
+2. 把下面的内容追加到/etc/hosts 140.82.114.4	github.com 199.232.69.194	github.global.ssl.fastly.net 185.199.108.153	asserts-cdn.github.com 185.199.109.153	asserts-cdn.github.com 185.199.110.153	asserts-cdn.github.com 185.199.111.153	asserts-cdn.github.com 3. 刷新DNS缓存 systemctl restart nscd</description>
+    </item>
+    
+  </channel>
+</rss>
