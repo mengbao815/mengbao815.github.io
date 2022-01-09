@@ -6,7 +6,29 @@
     <description>Recent content on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 05 Dec 2021 22:33:28 +0800</lastBuildDate><atom:link href="https://mengbao815.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 09 Jan 2022 22:14:10 +0800</lastBuildDate><atom:link href="https://mengbao815.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git_commands</title>
+      <link>https://mengbao815.github.io/post/git_commands/</link>
+      <pubDate>Sun, 09 Jan 2022 22:14:10 +0800</pubDate>
+      
+      <guid>https://mengbao815.github.io/post/git_commands/</guid>
+      <description>clone 1. clone code thru access token Settings -&amp;gt; Developer settings -&amp;gt; Personal access tokens -&amp;gt; Generate new token
+git clone https://oauth2:access_token@github.com/username/xxx.git
+For example : git clone https://oauth2:ghp_pxxdadfdfad8DKJKJLKASDSD6sdfd@github.com/mengbao815/mengbao815.github.io.git</description>
+    </item>
+    
+    <item>
+      <title>Setup_myblog_using_hugo</title>
+      <link>https://mengbao815.github.io/post/setup_myblog_using_hugo/</link>
+      <pubDate>Sun, 09 Jan 2022 17:53:37 +0800</pubDate>
+      
+      <guid>https://mengbao815.github.io/post/setup_myblog_using_hugo/</guid>
+      <description>使用的工具 Github Hugo
+参考文档 https://www.bilibili.com/video/BV1q4411i7gL/?spm_id_from=333.788.recommend_more_video.-1
+操作步骤 1. 生成博客（生成一个文件夹，如：myblog） [mengbao@minitana mnt]$ ls 00_code 01_software 02_document 03_Video 06_my_blog lost+found &#39;System Volume Information&#39; [mengbao@minitana mnt]$ hugo new site myblog Congratulations! Your new Hugo site is created in /home/mengbao/mnt/myblog. Just a few more steps and you&#39;re ready to go: 1. Download a theme into the same-named folder. Choose a theme from https://themes.gohugo.io/ or create your own with the &amp;quot;hugo new theme &amp;lt;THEMENAME&amp;gt;&amp;quot; command. 2. Perhaps you want to add some content.</description>
+    </item>
+    
     <item>
       <title>解决访问github慢的问题</title>
       <link>https://mengbao815.github.io/post/blog/</link>
