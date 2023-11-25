@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>To Know Netmask // Direwolf</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.120.1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://mengbao815.github.io/css/main.min.4a7ec8660f9a44b08c4da97c5f2e31b1192df1d4d0322e65c0dbbc6ecb1b863f.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="To Know Netmask"/>
+<meta name="twitter:description" content="Test Env A TP-Link router, An Ubuntu PC(PC A) and an ArchLinux PC(PC B) PC A and B are both connected to TP-Link router through ethernet cable
+Steps 1. PC A（192.168.1.200，netmask 255.255.255.0） Config ip address and netmask : sudo ifconfig enp4s0 192.168.1.101 netmask 255.255.255.0 Add default route rule : sudo route add default gw 192.168.1.1 PS : router ip address is 192.168.1.1 2. PC B（192.168.1.3，netmask 255.255.255.224） Config ip address and netmask : sudo ifconfig enp4s0 192."/>
+
+    <meta property="og:title" content="To Know Netmask" />
+<meta property="og:description" content="Test Env A TP-Link router, An Ubuntu PC(PC A) and an ArchLinux PC(PC B) PC A and B are both connected to TP-Link router through ethernet cable
+Steps 1. PC A（192.168.1.200，netmask 255.255.255.0） Config ip address and netmask : sudo ifconfig enp4s0 192.168.1.101 netmask 255.255.255.0 Add default route rule : sudo route add default gw 192.168.1.1 PS : router ip address is 192.168.1.1 2. PC B（192.168.1.3，netmask 255.255.255.224） Config ip address and netmask : sudo ifconfig enp4s0 192." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mengbao815.github.io/post/network_netmask/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-11-25T18:00:00+08:00" />
+<meta property="article:modified_time" content="2023-11-25T18:00:00+08:00" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://mengbao815.github.io"><img class="app-header-avatar" src="/avatar.jpg" alt="John Doe" /></a>
+      <h1>Direwolf</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula turpis sit amet elit pretium.</p>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">To Know Netmask</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Nov 25, 2023
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          7 min read
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <h2 id="test-env">Test Env</h2>
+<p>A TP-Link router, An Ubuntu PC(PC A) and an ArchLinux PC(PC B)
+PC A and B are both connected to TP-Link router through ethernet cable</p>
+<h2 id="steps">Steps</h2>
+<h3 id="1-pc-a1921681200netmask-2552552550">1. PC A（192.168.1.200，netmask 255.255.255.0）</h3>
+<pre tabindex="0"><code>Config ip address and netmask : sudo ifconfig enp4s0 192.168.1.101 netmask 255.255.255.0
+Add default route rule : sudo route add default gw 192.168.1.1
+PS : router ip address is 192.168.1.1
+</code></pre><h3 id="2-pc-b19216813netmask-255255255224">2. PC B（192.168.1.3，netmask 255.255.255.224）</h3>
+<pre tabindex="0"><code>Config ip address and netmask : sudo ifconfig enp4s0 192.168.1.101 netmask 255.255.255.0
+Add default route rule : sudo route add default gw 192.168.1.1
+PS : router ip address is 192.168.1.1
+</code></pre><h3 id="3-pc-a--b-clear-arp-cache">3. PC A &amp; B clear ARP cache</h3>
+<pre tabindex="0"><code>sudo ip -s -s neigh flush all
+</code></pre><h3 id="4-on-pc-b-ping-pc-a">4. On PC B， ping PC A</h3>
+<pre tabindex="0"><code>ping 192.168.1.200
+</code></pre><h4 id="1-wireshark-log-on-pc-b">1. wireshark log on PC B</h4>
+<pre tabindex="0"><code>9	2023/329 18:37:57.363460949	LCFCElectron_f5:43:29	TpLinkTechno_d6:7a:3d	192.168.1.3	192.168.1.200	ICMP	98	Echo (ping) request  id=0x000d, seq=1/256, ttl=64 (reply in 14)
+|-----&gt; ping request 1 : PC B -&gt; Router. Because &#34;192.168.1.200&#34; is not in same subnet with 192.168.1.3(netmask is 255.255.255.224).
+10	2023/329 18:37:57.363834902	TpLinkTechno_d6:7a:3d	Broadcast	TpLinkTechno_d6:7a:3d	Broadcast	ARP	60	Who has 192.168.1.200? Tell 192.168.1.1
+|-----&gt; Router is finding mac address of PC A(192.168.1.200)
+11	2023/329 18:37:57.363953327	TpLinkTechno_d6:7a:3d	LCFCElectron_f5:43:29	192.168.1.1	192.168.1.3	ICMP	126	Redirect             (Redirect for host)
+|-----&gt; It seems Router is telling PC B that there is more effictive way to send data out
+12	2023/329 18:37:57.363968431	LCFCElectron_f5:43:29	Broadcast	LCFCElectron_f5:43:29	Broadcast	ARP	42	Who has 192.168.1.200? Tell 192.168.1.3
+|-----&gt; PC B is finding mac address of PC A(192.168.1.200)
+13	2023/329 18:37:57.364289306	ASUSTekCOMPU_af:0d:fa	LCFCElectron_f5:43:29	ASUSTekCOMPU_af:0d:fa	LCFCElectron_f5:43:29	ARP	60	192.168.1.200 is at 2c:56:dc:af:0d:fa
+|-----&gt; PC B received mac address of PC A
+14	2023/329 18:37:57.364505426	ASUSTekCOMPU_af:0d:fa	LCFCElectron_f5:43:29	192.168.1.200	192.168.1.3	ICMP	98	Echo (ping) reply    id=0x000d, seq=1/256, ttl=64 (request in 9)
+|-----&gt; ping reply 1 : PC A -&gt; PC B
+15	2023/329 18:37:58.364925810	LCFCElectron_f5:43:29	TpLinkTechno_d6:7a:3d	192.168.1.3	192.168.1.200	ICMP	98	Echo (ping) request  id=0x000d, seq=2/512, ttl=64 (reply in 17)
+|-----&gt; ping request 2 : PC B -&gt; Router
+16	2023/329 18:37:58.365488222	TpLinkTechno_d6:7a:3d	LCFCElectron_f5:43:29	192.168.1.1	192.168.1.3	ICMP	126	Redirect             (Redirect for host)
+|-----&gt; It seems Router is telling PC B that there is more effictive way to send data out
+17	2023/329 18:37:58.365488983	ASUSTekCOMPU_af:0d:fa	LCFCElectron_f5:43:29	192.168.1.200	192.168.1.3	ICMP	98	Echo (ping) reply    id=0x000d, seq=2/512, ttl=64 (request in 15)
+|-----&gt; ping reply 2 : PC A -&gt; PC B
+18	2023/329 18:37:59.381525568	LCFCElectron_f5:43:29	ASUSTekCOMPU_af:0d:fa	192.168.1.3	192.168.1.200	ICMP	98	Echo (ping) request  id=0x000d, seq=3/768, ttl=64 (reply in 19)
+|-----&gt; ping request 3 : PC B -&gt; PC A.  PC B found a more effictively way to send data to PC A
+19	2023/329 18:37:59.382090404	ASUSTekCOMPU_af:0d:fa	LCFCElectron_f5:43:29	192.168.1.200	192.168.1.3	ICMP	98	Echo (ping) reply    id=0x000d, seq=3/768, ttl=64 (request in 18)
+|-----&gt; ping reply 3 : PC A -&gt; PC B
+20	2023/329 18:38:00.394858380	LCFCElectron_f5:43:29	ASUSTekCOMPU_af:0d:fa	192.168.1.3	192.168.1.200	ICMP	98	Echo (ping) request  id=0x000d, seq=4/1024, ttl=64 (reply in 21)
+|-----&gt; ping request 4 : PC B -&gt; PC A
+21	2023/329 18:38:00.395512672	ASUSTekCOMPU_af:0d:fa	LCFCElectron_f5:43:29	192.168.1.200	192.168.1.3	ICMP	98	Echo (ping) reply    id=0x000d, seq=4/1024, ttl=64 (request in 20)
+|-----&gt; ping reply 4 : PC A -&gt; PC B
+</code></pre><h4 id="2-wireshark-log-on-pc-a">2. wireshark log on PC A</h4>
+<pre tabindex="0"><code>1	2023/329 18:37:59.479826747	Tp-LinkT_d6:7a:3d	Broadcast	Tp-LinkT_d6:7a:3d	Broadcast	ARP	60	Who has 192.168.1.200? Tell 192.168.1.1
+|-----&gt; Router is finding mac address of PC A(192.168.1.200)
+2	2023/329 18:37:59.479918533	ASUSTekC_af:0d:fa	Tp-LinkT_d6:7a:3d	ASUSTekC_af:0d:fa	Tp-LinkT_d6:7a:3d	ARP	42	192.168.1.200 is at 2c:56:dc:af:0d:fa
+|-----&gt; Router received mac address of PC A
+3	2023/329 18:37:59.479980734	LCFCHeFe_f5:43:29	Broadcast	LCFCHeFe_f5:43:29	Broadcast	ARP	60	Who has 192.168.1.200? Tell 192.168.1.3
+|-----&gt; PC B is finding mac address of PC A(192.168.1.200)
+4	2023/329 18:37:59.480002637	ASUSTekC_af:0d:fa	LCFCHeFe_f5:43:29	ASUSTekC_af:0d:fa	LCFCHeFe_f5:43:29	ARP	42	192.168.1.200 is at 2c:56:dc:af:0d:fa
+|-----&gt; PC B received mac address of PC A
+5	2023/329 18:37:59.480113418	Tp-LinkT_d6:7a:3d	ASUSTekC_af:0d:fa	192.168.1.3	192.168.1.200	ICMP	98	Echo (ping) request  id=0x000d, seq=1/256, ttl=63 (reply in 6)
+|-----&gt; ping request 1 : Router -&gt; PC A
+6	2023/329 18:37:59.480173894	ASUSTekC_af:0d:fa	LCFCHeFe_f5:43:29	192.168.1.200	192.168.1.3	ICMP	98	Echo (ping) reply    id=0x000d, seq=1/256, ttl=64 (request in 5)
+|-----&gt; ping reply 1 : PC A -&gt; PC B
+7	2023/329 18:38:00.480970820	Tp-LinkT_d6:7a:3d	ASUSTekC_af:0d:fa	192.168.1.3	192.168.1.200	ICMP	98	Echo (ping) request  id=0x000d, seq=2/512, ttl=63 (reply in 8)
+|-----&gt; ping request 2 : Router -&gt; PC A
+8	2023/329 18:38:00.481042332	ASUSTekC_af:0d:fa	LCFCHeFe_f5:43:29	192.168.1.200	192.168.1.3	ICMP	98	Echo (ping) reply    id=0x000d, seq=2/512, ttl=64 (request in 7)
+|-----&gt; ping reply 2 : PC A -&gt; PC B
+9	2023/329 18:38:01.497552445	LCFCHeFe_f5:43:29	ASUSTekC_af:0d:fa	192.168.1.3	192.168.1.200	ICMP	98	Echo (ping) request  id=0x000d, seq=3/768, ttl=64 (reply in 10)
+|-----&gt; ping request 3 : PC B -&gt; PC A
+10	2023/329 18:38:01.497628676	ASUSTekC_af:0d:fa	LCFCHeFe_f5:43:29	192.168.1.200	192.168.1.3	ICMP	98	Echo (ping) reply    id=0x000d, seq=3/768, ttl=64 (request in 9)
+|-----&gt; ping reply 3 : PC A -&gt; PC B
+11	2023/329 18:38:02.510855924	LCFCHeFe_f5:43:29	ASUSTekC_af:0d:fa	192.168.1.3	192.168.1.200	ICMP	98	Echo (ping) request  id=0x000d, seq=4/1024, ttl=64 (reply in 12)
+|-----&gt; ping request 4 : PC B -&gt; PC A
+12	2023/329 18:38:02.510930676	ASUSTekC_af:0d:fa	LCFCHeFe_f5:43:29	192.168.1.200	192.168.1.3	ICMP	98	Echo (ping) reply    id=0x000d, seq=4/1024, ttl=64 (request in 11)
+|-----&gt; ping reply 4 : PC A -&gt; PC B
+</code></pre><h3 id="4-on-pc-b-ping-pc-a-1">4. On PC B， ping PC A</h3>
+<pre tabindex="0"><code>ping 192.168.1.200
+</code></pre><h4 id="1-wireshark-log-on-pc-b-1">1. wireshark log on PC B</h4>
+<pre tabindex="0"><code>15	2023/329 19:07:14.583338901	ASUSTekCOMPU_af:0d:fa	Broadcast	ASUSTekCOMPU_af:0d:fa	Broadcast	ARP	60	Who has 192.168.1.3? Tell 192.168.1.200
+|-----&gt; PC A is finding mac address of PC B(192.168.1.3)
+16	2023/329 19:07:14.583398721	LCFCElectron_f5:43:29	ASUSTekCOMPU_af:0d:fa	LCFCElectron_f5:43:29	ASUSTekCOMPU_af:0d:fa	ARP	42	192.168.1.3 is at c8:5b:76:f5:43:29
+|-----&gt; PC A received mac address of PC B(192.168.1.3)
+17	2023/329 19:07:14.583836988	ASUSTekCOMPU_af:0d:fa	LCFCElectron_f5:43:29	192.168.1.200	192.168.1.3	ICMP	98	Echo (ping) request  id=0x0003, seq=1/256, ttl=64 (reply in 18)
+|-----&gt; ping request 1 : PC A -&gt; PC B
+18	2023/329 19:07:14.583899248	LCFCElectron_f5:43:29	TpLinkTechno_d6:7a:3d	192.168.1.3	192.168.1.200	ICMP	98	Echo (ping) reply    id=0x0003, seq=1/256, ttl=64 (request in 17)
+|-----&gt; ping reply 1 : PC B -&gt; Router
+19	2023/329 19:07:14.584435139	TpLinkTechno_d6:7a:3d	Broadcast	TpLinkTechno_d6:7a:3d	Broadcast	ARP	60	Who has 192.168.1.200? Tell 192.168.1.1
+|-----&gt; Router is finding mac address of PC A(192.168.1.200)
+20	2023/329 19:07:14.584435999	TpLinkTechno_d6:7a:3d	LCFCElectron_f5:43:29	192.168.1.1	192.168.1.3	ICMP	126	Redirect             (Redirect for host)
+|-----&gt; It seems Router is telling PC B that there is more effictive way to send data out
+21	2023/329 19:07:15.585308368	ASUSTekCOMPU_af:0d:fa	LCFCElectron_f5:43:29	192.168.1.200	192.168.1.3	ICMP	98	Echo (ping) request  id=0x0003, seq=2/512, ttl=64 (reply in 22)
+|-----&gt; ping request 1 : PC A -&gt; PC B
+22	2023/329 19:07:15.585434117	LCFCElectron_f5:43:29	ASUSTekCOMPU_af:0d:fa	192.168.1.3	192.168.1.200	ICMP	98	Echo (ping) reply    id=0x0003, seq=2/512, ttl=64 (request in 21)
+|-----&gt; ping reply 1 : PC B -&gt; PC A
+23	2023/329 19:07:16.616188541	ASUSTekCOMPU_af:0d:fa	LCFCElectron_f5:43:29	192.168.1.200	192.168.1.3	ICMP	98	Echo (ping) request  id=0x0003, seq=3/768, ttl=64 (reply in 24)
+|-----&gt; ping request 2 : PC A -&gt; PC B
+24	2023/329 19:07:16.616295283	LCFCElectron_f5:43:29	ASUSTekCOMPU_af:0d:fa	192.168.1.3	192.168.1.200	ICMP	98	Echo (ping) reply    id=0x0003, seq=3/768, ttl=64 (request in 23)
+|-----&gt; ping reply 2 : PC B -&gt; PC A
+</code></pre><h4 id="2-wireshark-log-on-pc-a-1">2. wireshark log on PC A</h4>
+<pre tabindex="0"><code>3	2023/329 19:06:46.067940403	LCFCHeFe_f5:43:29	Broadcast	LCFCHeFe_f5:43:29	Broadcast	ARP	60	Who has 192.168.1.1? Tell 192.168.1.3
+|-----&gt; PC B is finding mac address of Router(192.168.1.1)
+4	2023/329 19:07:16.644762005	ASUSTekC_af:0d:fa	Broadcast	ASUSTekC_af:0d:fa	Broadcast	ARP	42	Who has 192.168.1.3? Tell 192.168.1.200
+|-----&gt; PC A is finding mac address of PC B(192.168.1.3)
+5	2023/329 19:07:16.645343072	LCFCHeFe_f5:43:29	ASUSTekC_af:0d:fa	LCFCHeFe_f5:43:29	ASUSTekC_af:0d:fa	ARP	60	192.168.1.3 is at c8:5b:76:f5:43:29
+|-----&gt; PC A received mac address of PC B(192.168.1.3)
+6	2023/329 19:07:16.645365586	ASUSTekC_af:0d:fa	LCFCHeFe_f5:43:29	192.168.1.200	192.168.1.3	ICMP	98	Echo (ping) request  id=0x0003, seq=1/256, ttl=64 (reply in 9)
+|-----&gt; ping request 1 : PC A -&gt; PC B
+7	2023/329 19:07:16.646073686	Tp-LinkT_d6:7a:3d	Broadcast	Tp-LinkT_d6:7a:3d	Broadcast	ARP	60	Who has 192.168.1.200? Tell 192.168.1.1
+|-----&gt; Router is finding mac address of PC A(192.168.1.200)
+8	2023/329 19:07:16.646153150	ASUSTekC_af:0d:fa	Tp-LinkT_d6:7a:3d	ASUSTekC_af:0d:fa	Tp-LinkT_d6:7a:3d	ARP	42	192.168.1.200 is at 2c:56:dc:af:0d:fa
+|-----&gt; Router received mac address of PC A(192.168.1.200)
+9	2023/329 19:07:16.646379492	Tp-LinkT_d6:7a:3d	ASUSTekC_af:0d:fa	192.168.1.3	192.168.1.200	ICMP	98	Echo (ping) reply    id=0x0003, seq=1/256, ttl=63 (request in 6)
+|-----&gt; ping reply 1 : Router -&gt; PC A
+10	2023/329 19:07:17.646700762	ASUSTekC_af:0d:fa	LCFCHeFe_f5:43:29	192.168.1.200	192.168.1.3	ICMP	98	Echo (ping) request  id=0x0003, seq=2/512, ttl=64 (reply in 11)
+|-----&gt; ping request 2 : PC A -&gt; PC B
+11	2023/329 19:07:17.647320515	LCFCHeFe_f5:43:29	ASUSTekC_af:0d:fa	192.168.1.3	192.168.1.200	ICMP	98	Echo (ping) reply    id=0x0003, seq=2/512, ttl=64 (request in 10)
+|-----&gt; ping reply 2 : PC B -&gt; PC A
+</code></pre><h2 id="summary">Summary</h2>
+<p>In case, 2 PCs are connected to a same router using internet cable, but 2 PCs&rsquo; netmask are configured differently, for example: 255.255.255.0 &amp; 255.255.255.224.
+PC A ping PC B, and PC B ping PC A too.
+But Path is not A -&gt; B -&gt; A, or B -&gt; A -&gt; B.
+At the biginning, the path is : A -&gt; B -&gt; Router -&gt; A, or B -&gt; router -&gt; A -&gt; B
+After 1 or  2 pings, the path is back to : A -&gt; B -&gt; A, or B -&gt; A -&gt; B.
+It seems Router has ability to tell PC B that there is more effictive way to send data out(B -&gt; A), PC B also can find out the effictive way finally.</p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

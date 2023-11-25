@@ -4,7 +4,7 @@
     <title>Detailed steps to setup nfs server(archlinux) and client(windows) // Direwolf</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.120.1">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="John Doe" />
     <meta name="description" content="" />
@@ -81,7 +81,7 @@ Services for NFS -&gt; checked</p>
 <pre tabindex="0"><code>[mengbao@minitana mnt]$ id
 uid=1000(mengbao) gid=1000(mengbao) groups=1000(mengbao),108(vboxusers),998(wheel)
 </code></pre><h3 id="6-add-anonymousgid--anonymousuid-in-regedit">6. Add AnonymousGid &amp; AnonymousUid in regedit</h3>
-<pre tabindex="0"><code>Open regedit by searching &quot;regedit&quot;
+<pre tabindex="0"><code>Open regedit by searching &#34;regedit&#34;
 Add 2 files(DWORD(32 bit)) named AnonymousGid &amp; AnonymousUid under below path:
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default
 Value of AnonymousGid is 1000(Decimal)
