@@ -23,7 +23,8 @@ Steps 1. PC A（192.168.1.200，netmask 255.255.255.0） Config ip address and n
       <guid>https://mengbao815.github.io/post/git_commands/</guid>
       <description>clone 1. clone code thru access token Settings -&amp;gt; Developer settings -&amp;gt; Personal access tokens -&amp;gt; Generate new token
 git clone https://oauth2:access_token@github.com/username/xxx.git
-For example : git clone https://oauth2:ghp_pxxdadfdfad8DKJKJLKASDSD6sdfd@github.com/mengbao815/mengbao815.github.io.git</description>
+For example : git clone https://oauth2:ghp_pxxdadfdfad8DKJKJLKASDSD6sdfd@github.com/mengbao815/mengbao815.github.io.git
+If access token is expired, we can use below command to update access token: git remote set-url origin https://TOKEN@github.com/mengbao815/mengbao815.github.io.git</description>
     </item>
     <item>
       <title>Setup_myblog_using_hugo</title>
